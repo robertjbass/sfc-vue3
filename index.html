@@ -1,0 +1,39 @@
+<html>
+<head>
+</head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<body>
+  <script src="https://unpkg.com/vue@next"></script>
+  <section id="app">
+    <div class="jumbotron" align="center">
+      <button type="button" style="width: 150px" class="btn btn-primary" @click="increase">Clicks: {{ count }}</button><br />
+      <button v-show="count > 9" style="width: 150px" type="button" class="btn btn-danger" @click="count = 0">{{ count < 16 ? "You've clicked enough" : "Now seriously, reset me" }}</button>
+    </div>
+    <div v-show="count > 19">Click to <a href="/explore.html">explore the code</a></div>
+  </section>
+</body>
+  <script>
+    Vue.createApp({
+      data() {
+        return {
+          count: 0
+        }
+      },
+      methods: {
+        increase() {
+          this.count++
+        }
+      },
+      mounted () {
+        document.title = "Vue 3 App"
+      },
+      watch: {
+        count() {
+          if (this.count == 20) {
+            alert("20 clicks is more than enough!")
+          }
+        }
+      },
+    }).mount('#app');
+  </script>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code Explorer</title>
+  <style>
+    * {
+      margin: 10px 30px;
+    }
+    .writeup {
+      width: 85%;
+    }
+  </style>
+</head>
+<body>
+    <script src="https://unpkg.com/vue@next"></script>
+    <section id="explore">
+      <h1>Let's explore the code from the home page</h1>
+      <h4>In Progress</h4>
+      <div class="writeup">
+
+      
+<code>
+  <pre style="padding: 2%;  font-size: large" class="bg-dark text-light">{{vueCDN}}</pre>
+</code>
+<code>
+  <pre style="padding: 2%;  font-size: large" class="bg-dark text-light">{{vueCode}}</pre>
+</code>
+</div>
+    </section>
+</body>
+    <script>
+      Vue.createApp({
+      data() {
+        return {
+      vueCDN: `<body>
+  <script src="https://unpkg.com/vue@next">⨞script>`,
+      vueCode: `Vue.createApp({
+  data() {
+    return {
+      count: 0
+    }
+  },
+  methods: {
+    increase() {
+      this.count++
+    }
+  },
+  mounted () {
+    document.title = "Vue 3 App"
+  },
+  watch: {
+    count() {
+      if (this.count == 20) {
+        alert("20 clicks is more than enough!")
+      }
+    }
+  },
+}).mount('#app');`
+        }
+      },
+      }).mount('#explore');
+    </script>
+</html>
